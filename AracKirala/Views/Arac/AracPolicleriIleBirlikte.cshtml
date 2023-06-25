@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "AracPolicleriIleBirlikte";
+}
+
+@model List<Arac>
+
+<h1>AracPolicleriIleBirlikte</h1>
+
+
+<table class="table table-striped">
+  <tr>
+    <th>Marka</th>
+    <th>Model</th>
+    <th>Plaka</th>
+    <th>Ucret</th>
+    <th>Police</th>
+  </tr>
+
+ 
+    @foreach (var item in Model)
+    {
+      <tr>
+      <td>@item.Marka</td>
+      <td>@item.Model</td>
+      <td>@item.Plaka</td>
+      <td>
+
+        <span>
+          Saatlik : @item.SaatlikUcret ₺
+        </span>
+        <span>
+          Günlük : @item.GunlukUcret ₺
+        </span>
+
+      </td>
+      <td>
+        <span>
+          Poliçe Numarası : @item?.Police?.PoliceNumara
+        </span>
+      </td>
+    </tr>
+  }
+
+
+</table>

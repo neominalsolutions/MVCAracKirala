@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "AraclarıSirketleriIleGoster";
+}
+
+
+@model List<Arac>
+
+
+<table class="table table-striped">
+  <tr>
+    <th>Marka</th>
+    <th>Model</th>
+    <th>Plaka</th>
+    <th>Fiyat</th>
+    <th>Şirket</th>
+  </tr>
+
+
+  @foreach (var item in Model)
+  {
+        <tr>
+        <td>@item.Marka</td>
+        <td>@item.Model</td>
+        <td>@item.Plaka</td>
+        <td>
+          Saatlik: @item.SaatlikUcret  ₺
+          <br>
+          Günlük : @item.GunlukUcret ₺
+        </td>
+        <td>
+          <span>
+            Şirket : @item?.AracSirket?.Isim
+          </span>
+        <span>
+          Adres : @item?.AracSirket?.Adres
+        </span>
+        </td>
+      </tr>
+  }
+
+</table>
+
